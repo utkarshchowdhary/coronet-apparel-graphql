@@ -9,6 +9,15 @@ export const AddButton = styled(CustomButton)`
   display: none;
 `;
 
+export const BackgroundImage = styled.div`
+  width: 100%;
+  height: 95%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 5px;
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+`;
+
 export const CollectionItemContainer = styled.div`
   width: 22vw;
   position: relative;
@@ -17,22 +26,13 @@ export const CollectionItemContainer = styled.div`
   height: 350px;
   align-items: center;
   &:hover {
-    .image {
+    ${BackgroundImage} {
       opacity: 0.8;
     }
     ${AddButton} {
       display: flex;
     }
   }
-`;
-
-export const BackgroundImage = styled.div`
-  width: 100%;
-  height: 95%;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 5px;
-  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
 export const CollectionFooterContainer = styled.div`
