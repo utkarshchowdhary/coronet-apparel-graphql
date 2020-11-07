@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import CollectionsOverview from '../../components/CollectionsOverview/CollectionsOverview';
-import CollectionPage from '../CollectionPage/CollectionPage';
+import { default as CollectionsOverview } from '../../components/CollectionsOverview/CollectionsOverview.container';
+import { default as CollectionPage } from '../CollectionPage/CollectionPage.container';
 
 import { ShopPageContainer } from './ShopPage.styles';
 

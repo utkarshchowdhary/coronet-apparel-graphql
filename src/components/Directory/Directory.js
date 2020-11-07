@@ -11,8 +11,8 @@ import { DirectoryMenuContainer } from './Directory.styles';
 const Directory = ({ sections }) => {
   return (
     <DirectoryMenuContainer>
-      {sections.map(({ id, ...otherSectionProps }) => (
-        <MenuItem key={id} {...otherSectionProps} />
+      {sections.map((section) => (
+        <MenuItem key={section.id} section={section} />
       ))}
     </DirectoryMenuContainer>
   );
