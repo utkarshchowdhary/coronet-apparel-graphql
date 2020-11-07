@@ -5,7 +5,7 @@ import { gql } from 'apollo-boost';
 import CollectionsOverview from './CollectionsOverview';
 import Spinner from '../Spinner/Spinner';
 
-const GET_COLLECTIONS = gql`
+const GET_COLLECTIONS_AND_ITEMS = gql`
   {
     collections {
       id
@@ -22,7 +22,7 @@ const GET_COLLECTIONS = gql`
 
 const CollectionsOverviewContainer = () => {
   return (
-    <Query query={GET_COLLECTIONS}>
+    <Query query={GET_COLLECTIONS_AND_ITEMS}>
       {({ loading, data }) => {
         if (loading) return <Spinner />;
         return <CollectionsOverview collections={data.collections} />;
