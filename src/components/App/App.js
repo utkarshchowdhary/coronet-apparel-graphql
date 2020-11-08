@@ -5,6 +5,7 @@ import { auth, createUserProfileDocument } from '../../firebase/firebase';
 
 import { default as Header } from '../Header/Header.container';
 import Spinner from '../Spinner/Spinner';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 import { GlobalStyle } from './global.styles';
 
@@ -45,18 +46,20 @@ const App = ({ currentUser, setCurrentUser }) => {
         <GlobalStyle />
         <Header />
         <Switch>
-          <Suspense fallback={<Spinner />}>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/shop" component={ShopPage} />
-            <Route exact path="/checkout" component={CheckoutPage} />
-            <Route
-              exact
-              path="/signin"
-              render={() =>
-                currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
-              }
-            />
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner />}>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/shop" component={ShopPage} />
+              <Route exact path="/checkout" component={CheckoutPage} />
+              <Route
+                exact
+                path="/signin"
+                render={() =>
+                  currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
+                }
+              />
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
       </div>
     </BrowserRouter>
