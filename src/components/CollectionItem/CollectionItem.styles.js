@@ -7,6 +7,13 @@ export const AddButton = styled(CustomButton)`
   position: absolute;
   top: 255px;
   display: none;
+
+  @media screen and (max-width: 800px) {
+    display: flex;
+    min-width: unset;
+    opacity: 0.9;
+    padding: 0 10px;
+  }
 `;
 
 export const BackgroundImage = styled.div`
@@ -25,12 +32,24 @@ export const CollectionItemContainer = styled.div`
   flex-direction: column;
   height: 350px;
   align-items: center;
+
   &:hover {
     ${BackgroundImage} {
       opacity: 0.8;
     }
+
     ${AddButton} {
       display: flex;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+
+    &:hover {
+      ${BackgroundImage} {
+        opacity: unset;
+      }
     }
   }
 `;

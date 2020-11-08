@@ -9,7 +9,7 @@ import ShopPage from '../../pages/ShopPage/ShopPage';
 import { default as CheckoutPage } from '../../pages/CheckoutPage/CheckoutPage.container';
 import SignInAndSignUpPage from '../../pages/SignInAndSignUpPage/SignInAndSignUpPage';
 
-import './App.css';
+import { GlobalStyle } from './global.styles';
 
 const App = ({ currentUser, setCurrentUser }) => {
   useEffect(() => {
@@ -36,6 +36,7 @@ const App = ({ currentUser, setCurrentUser }) => {
   return (
     <BrowserRouter>
       <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
