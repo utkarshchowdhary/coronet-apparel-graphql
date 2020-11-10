@@ -30,7 +30,7 @@ export const typeDefs = gql`
     AddItemToCart(item: Item!): [Item!]!
     RemoveItemFromCart(item: Item!): [Item!]!
     ClearItemFromCart(item: Item!): [Item!]!
-    SetCurrentUser(user: User!): User
+    SetCurrentUser(user: User): User
   }
 `;
 
