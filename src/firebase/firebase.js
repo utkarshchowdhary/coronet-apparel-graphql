@@ -13,6 +13,8 @@ const config = {
   measurementId: 'G-LS8QZZW8FX',
 };
 
+console.log(process.env.REACT_APP_CLIENT_ID);
+
 firebase.initializeApp(config);
 
 const auth = firebase.auth();
