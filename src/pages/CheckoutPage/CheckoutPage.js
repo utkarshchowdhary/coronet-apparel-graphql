@@ -9,9 +9,10 @@ import {
   HeaderBlockContainer,
   TotalContainer,
   WarningContainer,
+  RemindContainer,
 } from './CheckoutPage.styles';
 
-const CheckoutPage = ({ cartItems, total }) => {
+const CheckoutPage = ({ cartItems, total, currentUser }) => {
   return (
     <CheckoutPageContainer>
       <CheckoutHeaderContainer>
@@ -40,7 +41,10 @@ const CheckoutPage = ({ cartItems, total }) => {
         <br />
         4242 4242 4242 4242 - Exp: Any future date - CVV- Any 3 digit number
       </WarningContainer>
-      <StripeCheckoutButton price={total} />
+      {!currentUser && (
+        <RemindContainer>*Please Login before checkout*</RemindContainer>
+      )}
+      {currentUser && total > 0 && <StripeCheckoutButton price={total} />}
     </CheckoutPageContainer>
   );
 };

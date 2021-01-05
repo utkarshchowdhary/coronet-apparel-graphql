@@ -52,5 +52,14 @@ export const WarningContainer = styled.div`
   text-align: center;
   margin-top: 40px;
   font-size: 24px;
+  font-weight: 700;
   color: red;
+`;
+
+export const RemindContainer = styled.div`
+  text-align: center;
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #361999;
 `;
