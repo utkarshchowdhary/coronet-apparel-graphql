@@ -63,7 +63,6 @@ const ContactPage = () => {
           />
           <FormInput
             element="textarea"
-            type="text"
             name="message"
             value={message}
             onChange={handleChange}
