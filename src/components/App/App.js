@@ -17,6 +17,7 @@ const CheckoutPage = lazy(() =>
 const SignInAndSignUpPage = lazy(() =>
   import('../../pages/SignInAndSignUpPage/SignInAndSignUpPage')
 );
+const ContactPage = lazy(() => import('../../pages/ContactPage/ContactPage'));
 
 const App = ({ currentUser, setCurrentUser }) => {
   useEffect(() => {
@@ -50,6 +51,7 @@ const App = ({ currentUser, setCurrentUser }) => {
             <Suspense fallback={<Spinner />}>
               <Route exact path="/" component={HomePage} />
               <Route path="/shop" component={ShopPage} />
+              <Route path="/contact" component={ContactPage} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <Route
                 exact
