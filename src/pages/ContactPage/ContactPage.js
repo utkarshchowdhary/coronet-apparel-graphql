@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 import FormInput from '../../components/FormInput/FormInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
-import './ContactPage.scss';
+import {
+  ContactPageContainer,
+  InfoContainer,
+  FormContainer,
+  ButtonContainer,
+} from './ContactPage.styles';
 
 const ContactPage = () => {
   const [formState, setFormState] = useState({
@@ -25,8 +30,8 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="contact-page">
-      <div className="contact-page__info">
+    <ContactPageContainer>
+      <InfoContainer>
         <h1>Contact Me</h1>
         <p>
           This seemingly impersonal contact form aside will deliver your message
@@ -36,9 +41,9 @@ const ContactPage = () => {
           Not a fan of contact forms? Feel free to send me an email to
           utkarshkororo@gmail.com or message me using the form aside.
         </p>
-      </div>
-      <div className="contact-page__form">
-        <h1>Hi, There!</h1>
+      </InfoContainer>
+      <FormContainer>
+        <h1>Hi, there!</h1>
         <form onSubmit={handleSubmit}>
           <FormInput
             type="text"
@@ -65,12 +70,12 @@ const ContactPage = () => {
             label="Message"
             required
           />
-          <div className="button">
+          <ButtonContainer>
             <CustomButton type="submit">Send</CustomButton>
-          </div>
+          </ButtonContainer>
         </form>
-      </div>
-    </div>
+      </FormContainer>
+    </ContactPageContainer>
   );
 };
 
