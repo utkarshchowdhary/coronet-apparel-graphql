@@ -30,6 +30,7 @@ export const typeDefs = gql`
     AddItemToCart(item: Item!): [Item!]!
     RemoveItemFromCart(item: Item!): [Item!]!
     ClearItemFromCart(item: Item!): [Item!]!
+    ClearCart: [Item]!
     SetCurrentUser(user: User): User
   }
 `;
@@ -149,6 +150,24 @@ export const resolvers = {
       });
 
       return newCartItems;
+    },
+    clearCart(_root, _args, { cache }) {
+      cache.writeQuery({
+        query: GET_ITEM_COUNT,
+        data: { itemCount: 0 },
+      });
+
+      cache.writeQuery({
+        query: GET_CART_TOTAL,
+        data: { cartTotal: 0 },
+      });
+
+      cache.writeQuery({
+        query: GET_CART_ITEMS,
+        data: { cartItems: [] },
+      });
+
+      return [];
     },
     setCurrentUser: (_root, { user }, { cache }) => {
       cache.writeQuery({

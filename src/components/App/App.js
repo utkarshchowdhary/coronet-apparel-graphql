@@ -19,7 +19,7 @@ const SignInAndSignUpPage = lazy(() =>
 );
 const ContactPage = lazy(() => import('../../pages/ContactPage/ContactPage'));
 
-const App = ({ currentUser, setCurrentUser }) => {
+const App = ({ currentUser, setCurrentUser, clearCart }) => {
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -33,13 +33,14 @@ const App = ({ currentUser, setCurrentUser }) => {
         });
       } else {
         setCurrentUser(null);
+        clearCart();
       }
     });
 
     return () => {
       unsubscribeFromAuth();
     };
-  }, [setCurrentUser]);
+  }, [clearCart, setCurrentUser]);
 
   return (
     <BrowserRouter>
